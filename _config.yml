@@ -1,2 +1,4 @@
 name: ÂæÍÕÏé×Ó£¬CMCC IOT
 markdown: kramdown
+
+permalink: /blog/:year/:month/:day/:title
