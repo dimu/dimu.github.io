@@ -18,7 +18,7 @@ zk广泛应用于分布式系统与中间件，在leader选举，分布式锁，
 
 ## Zookeerper知识汇总
 
-![zk知识点汇总](../img/summary/zk/Zookeeper summary.png)
+![zk知识点汇总](img/summary/zk/Zookeeper summary.png)
 
  
 
