@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Hazelcat
+title:      Hazelcast专辑之初探hazelcast
 subtitle:   初探hazelcast
 date:       2020-05-14
 author:     加菲猫
