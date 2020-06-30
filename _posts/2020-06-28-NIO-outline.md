@@ -12,11 +12,20 @@ tags:
     - outline
 ---
 
+## old io lack features
+1. file locking
+2. nonblocking io
+3. readiness selection
+4. memory mapping
+5. interact properly with non-java applications
+
 ## basic concept
 
-1. channel
-2. buffer
+1. channels
+2. buffers
 3. pipe
+4. selectors
+5. file locking and memory-mapped files
 
 ## buffer
 
