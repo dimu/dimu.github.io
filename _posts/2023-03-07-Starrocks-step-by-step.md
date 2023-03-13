@@ -12,12 +12,34 @@ tags:
     - Real DataWarehouse
 ---
 
+## starrocks介绍
 
 
-## starrocks install 
 
-### k8s部署方式
+## 1.starrocks install 
+
+### 1.1 k8s部署方式
 1. 参考[k8s部署方式](https://docs.starrocks.io/zh-cn/latest/administration/sr_operator)
+
+### 1.2 手动部署模式
+
+#### 1.2.1 单FE单BE模式
+
+参考官网
+
+#### 1.2.2 集群扩缩容
+
+- 1. 下载安装包，目前有些版本为测试版本，可以通过文件名区分   
+	```
+	wget https://releases.mirrorship.cn/starrocks/StarRocks-2.3.10.tar.gz
+	tar -xzvf StarRocks-2.3.10.tar.gz
+	```
+
+
+### 1.3 stargo部署模式
+
+stargo是个人开发者写的go语言部署端，尝试了下报cdn出错，并且个人开发者维护不积极，问题坑比较多，慎用
+
 
 
 ## starrock 连接方式
@@ -133,3 +155,31 @@ hll HyperLogLog 用于近似去重，参考：https://docs.starrocks.io/zh-cn/la
   ALTER TABLE detailDemo ADD COLUMN uv BIGINT DEFAULT '0' after ispass;  //新增字段
   ALTER TABLE detailDemo DROP COLUMN uv;  //删除字段
 ```
+
+## 3.data load
+
+### 3.1 Broker load
+**使用场景：**
+
+### 3.2 Spark load
+
+
+### 3.3 Stream load
+
+**使用场景：**同步数据导入方式，用户通过http协议请求本地文件或者数据流导入到StarRocks中，并等待系统返回导入的结果状态，从而判断导入是否成功。该导入支持的数据源有**Apache Flink**或者**CSV文件**等。
+
+```
+语法:curl --location-trusted -u user:passwd [-H ""...] -T data.file -XPUT http://fe_host:http_port/api/{db}/{table}/_stream_load
+
+
+例子：curl --location-trusted -u root: -T detailDemo_data -H "label: streamDemo" \
+-H "column_separator:," \
+http://127.0.0.1:8030/api/dwx_test/detailDemo/_stream_load
+```
+
+导入成功后返回的json中会包含Status字段，如果为success即成功。
+
+### 3.4 Routine load
+
+
+### 3.5 Insert into
